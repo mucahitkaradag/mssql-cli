@@ -1,3 +1,16 @@
+important update for getting command not found error
+
+have to change in this file `~/.local/bin/mssql-cli`
+and replace this
+```
+python -m mssqlcli.main "$@"
+```
+with this
+```
+( command -v python3 && python3 -m mssqlcli.main "$@" ) || python -m mssqlcli.main "$@"
+```
+---
+
 [![PyPI](https://badge.fury.io/py/mssql-cli.svg)](https://pypi.python.org/pypi/mssql-cli)
 [![Python 2.7|3.4|3.5|3.6|3.7|3.8](https://img.shields.io/badge/python-2.7&nbsp;|&nbsp;3.4&nbsp;|&nbsp;3.5&nbsp;|&nbsp;3.6&nbsp;|&nbsp;3.7&nbsp;|&nbsp;3.8-blue.svg)](https://github.com/dbcli/mssql-cli)
 
